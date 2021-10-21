@@ -45,7 +45,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, event_loop: QEventLoop = None):
         super(MainWindow, self).__init__()
         self.setWindowTitle("Tenor Statusbar Gifs")
-        self.setWindowIcon(QtGui.QIcon(QtGui.QPixmap("app/res/logo.png")))
+        self.setWindowIcon(QtGui.QIcon(QtGui.QPixmap(f"{os.path.abspath(os.path.dirname(__file__))}/app/res/logo.png")))
         QtWidgets.qApp.focusChanged.connect(self.on_focus_changed)
         self.setWindowFlag(QtCore.Qt.WindowStaysOnTopHint)
 
@@ -134,7 +134,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # Icon for Searchbar
         # Thanks to eyllanesc in https://stackoverflow.com/questions/51649332/how-to-make-size-of-button-in-the-lineedit-smaller
-        load_icon = QtGui.QPixmap("app/res/clear.png")
+        load_icon = QtGui.QPixmap(f"{os.path.abspath(os.path.dirname(__file__))}/app/res/clear.png")
         fixed_icon = QtGui.QPixmap(load_icon.size() * 10 / 7)
         rect = QtCore.QRect(load_icon.rect())
         rect.moveCenter(fixed_icon.rect().center())
@@ -201,7 +201,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.save_settings()
 
     def load_settings(self) -> None:
-        load_path = f'{os.path.abspath(os.getcwd())}/app/settings.json'
+        load_path = f'{os.path.abspath(os.path.dirname(__file__))}/app/settings.json'
         try:
             with open(load_path, 'r') as load_file:
                 load_data = json.load(load_file)
@@ -214,7 +214,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.get_trending_search_terms()
 
     def save_settings(self) -> None:
-        save_path = f'{os.path.abspath(os.getcwd())}/app/settings.json'
+        save_path = f'{os.path.abspath(os.path.dirname(__file__))}/app/settings.json'
         save_data = {'col_count': self.col_choice,
                      'should_hide': self.should_hide_on_focus_lost,
                      'global_shortcut': self.global_shortcut}
@@ -428,7 +428,7 @@ if __name__ == '__main__':
     loop: QEventLoop = QEventLoop(qt_application)
 
     main_tray: MySystemTray = MySystemTray()
-    main_tray.setIcon(QtGui.QIcon(QtGui.QPixmap("app/res/logo.png")))
+    main_tray.setIcon(QtGui.QIcon(QtGui.QPixmap(f"{os.path.abspath(os.path.dirname(__file__))}/app/res/logo.png")))
     main_tray.setVisible(True)
 
     menu: QtWidgets.QMenu = QtWidgets.QMenu()
