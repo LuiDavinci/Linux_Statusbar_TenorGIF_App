@@ -11,6 +11,12 @@ The Application might look different depending on what graphical desktop environ
 
 ----------------
 
+### Prerequisite:
+
+Make sure to have QT5 installed on your machine. [Check here](https://wiki.qt.io/Install_Qt_5_on_Ubuntu)
+
+----------------
+
 ### Features:
 
 * Search GIFs from Tenor (Sorted either by Ranked or Random) *Default: Ranked* 
