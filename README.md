@@ -56,7 +56,7 @@ After that's done you simply start the App
 Done!
 
 ##### The Conda Way (Recommended)
-Make sure you have [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html) installed. Then in your terminal you do:
+Make sure you have [Conda](https://docs.anaconda.com/anaconda/install/linux/) installed. Then in your terminal you do:
 ```bash
 > conda create --name WhateverNameYouWant python=3.8
 ```
